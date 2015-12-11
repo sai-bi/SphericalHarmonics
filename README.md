@@ -7,6 +7,16 @@ For details of SH, please refer to:
 
 ### Demo
 <figure>
-  <img src="./grace.jpg" alt="original env map" width="45%">
-  <figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
+  <center>
+  <img src="./img/grace.jpg" alt="original env map" width="80%">
+  <figcaption>original map</figcaption>
+  <img src="./img/4.png" alt="degree: 4" width="80%">
+  <figcaption>degree: 4</figcaption>
+  <img src="./img/11.png" alt="degree: 11" width="80%">
+  <figcaption>degree: 11</figcaption>
+  <img src="./img/21.png" alt="degree: 21" width="80%">
+  <figcaption>degree: 21</figcaption>
+  <img src="./img/51.png" alt="degree: 51" width="80%">
+  <figcaption>degree: 51</figcaption>
+  </center>
 </figure>
