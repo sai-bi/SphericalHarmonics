@@ -7,15 +7,15 @@ function [sh_coeff, sh_img] = sh(img, l)
 %% Input:
 %% img: [h * w * 3] input environment light probe
 %% l  : [scalar] degree of sh
+
 img = double(img);
 [h, w, ~] = size(img);
 theta = ((0:h-1)  + 0.5) * pi / h;
 phi = ((0:w-1)  + 0.5) *2 * pi/ w;
 
-[x,y] = meshgrid(phi, theta);
+[x, y] = meshgrid(phi, theta);
 dirs = [x(:) y(:)];
 
-l = 50;
 num = (l+1)^2;
 coeff = getSH(l, dirs, 'real');
 
