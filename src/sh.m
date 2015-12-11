@@ -25,8 +25,8 @@ num = (l+1)^2;
 coeff = getSH(l, dirs, 'real');
 
 %% compute d(\omega): differential of solid angle
-theta = [0 theta]; val = cos(theta); w_theta = val(1:end-1) - val(2:end);
-val = [0 phi]; w_phi = val(2:end) - val(1:end-1); [x,y] = meshgrid(w_phi, w_theta);
+theta = (0:h) * pi / h; val = cos(theta); w_theta = val(1:end-1) - val(2:end);
+val = (0:w)*2*pi/w; w_phi = val(2:end) - val(1:end-1); [x,y] = meshgrid(w_phi, w_theta);
 d_omega = x(:) .* y(:);
 
 %% compute SH coefficient
