@@ -45,7 +45,7 @@ out_r = coeff .* repmat(r_coeff, h*w,1); out_r = sum(out_r, 2);
 out_g = coeff .* repmat(g_coeff, h*w,1); out_g = sum(out_g, 2);
 out_b = coeff .* repmat(b_coeff, h*w,1); out_b = sum(out_b, 2);
 
-output = zeros(h,w,3);
-output(:,:,1) = reshape(out_r, h, w);
-output(:,:,2) = reshape(out_g, h, w);
-output(:,:,3) = reshape(out_b, h, w);
+sh_img = zeros(h,w,3);
+sh_img(:,:,1) = reshape(out_r, h, w);
+sh_img(:,:,2) = reshape(out_g, h, w);
+sh_img(:,:,3) = reshape(out_b, h, w);
