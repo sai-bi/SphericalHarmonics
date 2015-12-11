@@ -20,6 +20,6 @@ For details of SH, please refer to:
 ---
 **Degree 51:**
 <img src="./img/51.png" alt="degree: 51" width="50%">
-
+---
 
 
