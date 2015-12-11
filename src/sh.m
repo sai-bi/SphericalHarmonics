@@ -1,4 +1,4 @@
-%% Compute the Spherical Harmonics(SH) coefficients and representation os given
+%% Compute the Spherical Harmonics(SH) coefficients and representation of given
 %% environment map.
 %% For details of SH, please refer to: 
 %%  - https://en.wikipedia.org/wiki/Spherical_harmonics
@@ -25,18 +25,14 @@ num = (l+1)^2;
 coeff = getSH(l, dirs, 'real');
 
 %% compute d(\omega): differential of solid angle
-theta = [0 theta];
-val = cos(theta);
-w_theta = val(1:end-1) - val(2:end);
-val = [0 phi];
-w_phi = val(2:end) - val(1:end-1);
-[x,y] = meshgrid(w_phi, w_theta);
-div = x(:) .* y(:);
+theta = [0 theta]; val = cos(theta); w_theta = val(1:end-1) - val(2:end);
+val = [0 phi]; w_phi = val(2:end) - val(1:end-1); [x,y] = meshgrid(w_phi, w_theta);
+d_omega = x(:) .* y(:);
 
 %% compute SH coefficient
-r = img(:,:,1); r = r(:) .* div; r_coeff = repmat(r, 1, num) .* coeff; r_coeff = sum(r_coeff,1) ;
-g = img(:,:,2); g = g(:) .* div; g_coeff = repmat(g, 1, num) .* coeff; g_coeff = sum(g_coeff,1) ;
-b = img(:,:,3); b = b(:) .* div; b_coeff = repmat(b, 1, num) .* coeff; b_coeff = sum(b_coeff,1) ;
+r = img(:,:,1); r = r(:) .* d_omega; r_coeff = repmat(r, 1, num) .* coeff; r_coeff = sum(r_coeff,1) ;
+g = img(:,:,2); g = g(:) .* d_omega; g_coeff = repmat(g, 1, num) .* coeff; g_coeff = sum(g_coeff,1) ;
+b = img(:,:,3); b = b(:) .* d_omega; b_coeff = repmat(b, 1, num) .* coeff; b_coeff = sum(b_coeff,1) ;
 
 sh_coeff = [r_coeff; g_coeff; b_coeff];
 
@@ -49,3 +45,4 @@ sh_img = zeros(h,w,3);
 sh_img(:,:,1) = reshape(out_r, h, w);
 sh_img(:,:,2) = reshape(out_g, h, w);
 sh_img(:,:,3) = reshape(out_b, h, w);
+sh_img = uint8(sh_img);
